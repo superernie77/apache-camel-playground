@@ -17,12 +17,12 @@ public class RestRouteWithDataFormats extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 	
-		from("restlet:http://localhost:8080/hellotransform/?restletMethods=POST")
-		.log("${body}")
-		.unmarshal(dataFormat)
-		.log("${body}")
-		.marshal(jsonFormat)
-		.log("${body}");
+//		from("restlet:http://localhost:8080/hellotransform/?restletMethods=POST")
+//		.log("${body}")
+//		.unmarshal(dataFormat)
+//		.log("${body}")
+//		.marshal(jsonFormat)
+//		.log("${body}");
 	
 	}
 }
