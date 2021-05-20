@@ -13,12 +13,12 @@ public class RestRouteWithProcessor extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		
-		from("restlet:http://localhost:8080/hellowithprocessor/{text}?restletMethods=GET")
-		.routeId("meineroute")
-		.log("Vor Prozessor: ${header.text}")
-		.process(nameProcessor)
-		.log("Nach Prozessor: ${header.text}")
-		.bean("greeterBean", "sayHello(${header.text})");
+//		from("restlet:http://localhost:8085/hellowithprocessor/{text}?restletMethods=GET")
+//		.routeId("meineroute")
+//		.log("Vor Prozessor: ${header.text}")
+//		.process(nameProcessor)
+//		.log("Nach Prozessor: ${header.text}")
+//		.bean("greeterBean", "sayHello(${header.text})");
 	}
 
 }

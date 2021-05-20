@@ -15,8 +15,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.5</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>2.4.4</version>
+		<relativePath />
 	</parent>
 
 	<properties>
@@ -25,13 +25,25 @@
 		<java.version>9</java.version>
 	</properties>
 
+	<dependencyManagement>
+
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-spring-boot-dependencies</artifactId>
+				<version>3.0.0-RC2</version>
+				<type>pom</type>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
-			<version>3.0.0-RC3</version>
+			<version>3.0.0-RC2</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,30 +52,53 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jackson</artifactId>
-			<version>2.20.0</version>
+			<version>3.0.0-RC2</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-xstream</artifactId>
-			<version>2.20.0</version>
+			<version>3.0.0-RC2</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-restlet</artifactId>
-			<version>2.19.3</version>
+			<version>3.0.0-RC2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.undertow</groupId>
+			<artifactId>undertow-websockets-jsr</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-jaxb</artifactId>
-			<version>2.20.0</version>
+			<artifactId>camel-jetty</artifactId>
+			<version>3.0.0-RC2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
 
+		<dependency>
+			<groupId>io.projectreactor.netty</groupId>
+			<artifactId>reactor-netty</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

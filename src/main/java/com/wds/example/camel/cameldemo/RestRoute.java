@@ -9,7 +9,7 @@ public class RestRoute extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		
-		from("restlet:http://localhost:8080/hello/{text}?restletMethods=GET")
+		from("restlet:http://localhost:8085/hello/{text}?restletMethods=GET")
 		.bean("greeterBean", "sayHello(${header.text})");
 	}
 
