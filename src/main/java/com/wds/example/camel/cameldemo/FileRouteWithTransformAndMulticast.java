@@ -24,7 +24,4 @@ public class FileRouteWithTransformAndMulticast extends RouteBuilder {
 		.log("Route 2 called with File ${header.CamelFileName} and body : ${body}");
 		
 	}
-	
-	
-
 }

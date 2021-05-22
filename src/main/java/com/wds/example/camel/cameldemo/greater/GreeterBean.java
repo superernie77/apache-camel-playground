@@ -1,4 +1,4 @@
-package com.wds.example.camel.cameldemo;
+package com.wds.example.camel.cameldemo.greater;
 
 import org.springframework.stereotype.Component;
 

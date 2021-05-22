@@ -1,10 +1,10 @@
-package com.wds.example.camel.cameldemo;
+package com.wds.example.camel.cameldemo.greater;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RestRoute extends RouteBuilder {
+public class GreeterRestRoute extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
