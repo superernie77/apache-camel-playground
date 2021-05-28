@@ -1,4 +1,4 @@
-package com.wds.example.camel.cameldemo;
+package com.wds.example.camel.cameldemo.predicate;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
