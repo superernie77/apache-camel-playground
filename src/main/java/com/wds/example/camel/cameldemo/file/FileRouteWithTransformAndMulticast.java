@@ -1,4 +1,4 @@
-package com.wds.example.camel.cameldemo;
+package com.wds.example.camel.cameldemo.file;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
