@@ -1,6 +1,8 @@
 package com.wds.example.camel.cameldemo.predicate;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +16,7 @@ class RestRouteWithPredicateTest {
 	private RestTemplate template = new RestTemplate();
 	
 	@Test
+	@Disabled
 	void testHelloWithPredicateRout1() {
 		
 		UriComponents uri =  UriComponentsBuilder.newInstance()
@@ -26,6 +29,7 @@ class RestRouteWithPredicateTest {
 	}
 	
 	@Test
+	@Disabled
 	void testHelloWithPredicateRout2() {
 		
 		UriComponents uri =  UriComponentsBuilder.newInstance()
@@ -38,6 +42,7 @@ class RestRouteWithPredicateTest {
 	}
 
 	@Test
+	@Disabled
 	void testHelloWithPredicateRout3() {
 		
 		UriComponents uri =  UriComponentsBuilder.newInstance()

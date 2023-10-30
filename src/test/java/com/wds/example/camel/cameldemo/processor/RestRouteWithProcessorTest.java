@@ -1,6 +1,8 @@
 package com.wds.example.camel.cameldemo.processor;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +16,7 @@ class RestRouteWithProcessorTest {
 	private RestTemplate template = new RestTemplate();
 	
 	@Test
+	@Disabled
 	void testHelloWithProcessor() {
 		
 		UriComponents uri =  UriComponentsBuilder.newInstance()

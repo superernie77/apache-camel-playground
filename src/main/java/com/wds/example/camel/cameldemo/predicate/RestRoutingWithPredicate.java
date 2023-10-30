@@ -10,12 +10,12 @@ public class RestRoutingWithPredicate extends RouteBuilder {
 	public void configure() throws Exception {
 
 		//@formatter:off
-		from("restlet:http://localhost:8085/hellochoice/{text}?restletMethods=GET")
+	/*	from("rest:http://localhost:8085/hellochoice/{text}?restletMethods=GET")
 		 .choice()
 		 	.when( e -> e.getIn().getHeader("text").equals("route1")).to("direct:log1")
 		 	.when( e -> e.getIn().getHeader("text").equals("route2")).to("direct:log2")
 		 	.otherwise().to("direct:log3")
-		 .end();
+		 .end();*/
 		
 		from("direct:log1")
 		.routeId("Route 1")

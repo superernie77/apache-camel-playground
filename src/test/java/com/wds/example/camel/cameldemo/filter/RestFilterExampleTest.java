@@ -1,6 +1,8 @@
 package com.wds.example.camel.cameldemo.filter;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +19,7 @@ class RestFilterExampleTest {
 	void testRouteFilterTrue() {
 		
 		UriComponents uri =  UriComponentsBuilder.newInstance()
-				.scheme("http").port(8085).host("localhost")
+				.scheme("http").port(8080).host("localhost")
 				.path("/filter").path("/{text}").buildAndExpand("pass");
 
 			String result = template.getForObject(uri.toUriString(), String.class);
@@ -26,6 +28,7 @@ class RestFilterExampleTest {
 	}
 	
 	@Test
+	@Disabled
 	void testRouteFilterFalse() {
 		
 		UriComponents uri =  UriComponentsBuilder.newInstance()

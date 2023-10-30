@@ -6,11 +6,11 @@
 
 	<groupId>com.wds.example.camel</groupId>
 	<artifactId>cameldemo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.1</version>
 	<packaging>jar</packaging>
 
 	<name>cameldemo</name>
-	<description>Code demos for camel stuff</description>
+	<description>Demo Code for camel stuff</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -23,6 +23,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>9</java.version>
+		<camel.version>3.7.4</camel.version>
 	</properties>
 
 	<dependencyManagement>
@@ -31,7 +32,7 @@
 			<dependency>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-spring-boot-dependencies</artifactId>
-				<version>3.7.4</version>
+				<version>${camel.version}</version>
 				<type>pom</type>
 				<scope>provided</scope>
 			</dependency>
@@ -42,7 +43,7 @@
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
-			<version>3.7.4</version>
+			<version>${camel.version}</version>
 		</dependency>
 
 		<dependency>
@@ -62,16 +63,35 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Required for REST component -->
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-rest-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		
+		<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-servlet</artifactId>
+  	<version>${camel.version}</version>
+</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-rest</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jackson</artifactId>
-			<version>3.7.4</version>
+			<version>${camel.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-xstream</artifactId>
-			<version>3.7.4</version>
+			<version>${camel.version}</version>
 		</dependency>
 
 		
@@ -81,24 +101,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-jetty</artifactId>
-			<version>3.7.4</version>
-		</dependency>
-
-		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>io.projectreactor.netty</groupId>
-			<artifactId>reactor-netty</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-webapp</artifactId>
 		</dependency>
 	</dependencies>
 

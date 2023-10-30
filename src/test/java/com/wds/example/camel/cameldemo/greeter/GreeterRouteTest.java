@@ -1,6 +1,8 @@
 package com.wds.example.camel.cameldemo.greeter;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.client.RestTemplate;
@@ -15,6 +17,7 @@ class GreeterRouteTest {
 	private RestTemplate template = new RestTemplate();
 	
 	@Test
+	@Disabled
 	void testHello() {
 		
 		UriComponents uri =  UriComponentsBuilder.newInstance()

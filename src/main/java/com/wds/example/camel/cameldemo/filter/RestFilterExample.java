@@ -8,11 +8,15 @@ public class RestFilterExample extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
+
+		restConfiguration().component("servlet").host("localhost").port(8080);
+
 		//@formatter:off
-		from("restlet:http://localhost:8085/filter/{text}?restletMethods=GET")
+		from("rest:get:filter/{text}").routeId("Rest-Filter-Route")
 			.log("${header.text}")
+
 			.filter(header("text").endsWith("pass")) // request passes if it ends with "pass"
-		.bean("greeterBean", "sayHello(${header.text})");
+			.bean("greeterBean", "sayHello(${header.text})");
 		//@formatter:on
 	}
 
