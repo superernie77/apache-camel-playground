@@ -20,7 +20,7 @@ class RestFilterExampleTest {
 		
 		UriComponents uri =  UriComponentsBuilder.newInstance()
 				.scheme("http").port(8080).host("localhost")
-				.path("/filter").path("/{text}").buildAndExpand("pass");
+				.path("/hello").build();
 
 			String result = template.getForObject(uri.toUriString(), String.class);
 			
