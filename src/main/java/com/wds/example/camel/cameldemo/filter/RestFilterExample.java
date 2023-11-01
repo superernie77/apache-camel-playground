@@ -1,22 +1,21 @@
 package com.wds.example.camel.cameldemo.filter;
 
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.model.rest.RestBindingMode;
 import org.springframework.stereotype.Component;
 
 @Component
 public class RestFilterExample extends RouteBuilder {
 
 	@Override
-	public void configure() throws Exception {
-
-		restConfiguration().contextPath("/rest").component("servlet").host("localhost").port(8080);
-
-		//@formatter:off
-		rest().get("/hello").to("direct:hello");	
-			
-			
-		from("direct:hello").transform().constant("Hello!");
-		//@formatter:on
-	}
+	  public void configure() throws Exception {
+	    restConfiguration().component("servlet").bindingMode(RestBindingMode.auto);
+	    
+	    rest().path("/rest").consumes("application/json").produces("application/json")
+	        
+	    	.get("{name}").to("bean:serviceBean?method=hello(${headers.name})")
+	        
+	    	.post().type(User.class).outType(User.class).to("bean:serviceBean?method=response");
+	    } 
 
 }

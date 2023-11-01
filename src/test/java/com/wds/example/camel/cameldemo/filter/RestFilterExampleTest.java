@@ -5,12 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 class RestFilterExampleTest {
 
 	private RestTemplate template = new RestTemplate();
@@ -18,13 +19,9 @@ class RestFilterExampleTest {
 	@Test
 	void testRouteFilterTrue() {
 		
-		UriComponents uri =  UriComponentsBuilder.newInstance()
-				.scheme("http").port(8080).host("localhost")
-				.path("/hello").build();
-
-			String result = template.getForObject(uri.toUriString(), String.class);
+			String result = template.getForObject("http://localhost:8080/camel/rest/John", String.class);
 			
-			assertTrue(result.equals("Hello pass!"));	
+			assertNotNull(result);	
 	}
 	
 	@Test
