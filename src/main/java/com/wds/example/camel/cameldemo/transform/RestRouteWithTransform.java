@@ -10,12 +10,18 @@ public class RestRouteWithTransform extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		
-		//@formatter:off
-	/*	from("restlet:http://localhost:8085/hellowithtransform?restletMethods=GET")
+		rest()
+		.path("/hellowithtransform")
+		.produces("application/text")    
+	    .get()
+	    .to("direct:transform");
+
+		
+		from("direct:transform")
 		.log("Before Transform ' ${body}'")
 		.transform(body().append("Body tranformed").regexReplaceAll("null", ""))
-		.log("After Transform '${body}'");*/
-		//@formatter:on
+		.log("After Transform '${body}'");
+		
 	}
 
 }

@@ -29,8 +29,8 @@ class RestFilterExampleTest {
 	void testRouteFilterFalse() {
 		
 		UriComponents uri =  UriComponentsBuilder.newInstance()
-				.scheme("http").port(8085).host("localhost")
-				.path("/filter").path("/{text}").buildAndExpand("skip");
+				.scheme("http").port(8080).host("localhost")
+				.path("camel/filter").path("/{text}").buildAndExpand("skip");
 
 			String result = template.getForObject(uri.toUriString(), String.class);
 			
