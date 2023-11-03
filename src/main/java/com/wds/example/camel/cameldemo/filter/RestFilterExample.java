@@ -11,11 +11,13 @@ public class RestFilterExample extends RouteBuilder {
 	  public void configure() throws Exception {
 	    restConfiguration().component("servlet").bindingMode(RestBindingMode.auto);
 	    
-	    rest().path("/rest").consumes("application/json").produces("application/json")
-	        
-	    	.get("{name}").to("bean:serviceBean?method=hello(${headers.name})")
-	        
-	    	.post().type(User.class).outType(User.class).to("bean:serviceBean?method=response");
+	    rest().path("/filter").consumes("application/text").produces("application/text")
+	    	.get("{text}").to("direct:filter");
+	    
+	    from("direct:filter")
+	    	.log("${header.text}")
+	    	.filter(header("text").endsWith("pass")) // request passes if it ends with "pass"
+	    	.bean("greeterBean", "sayHello(${header.text})");
 	    } 
 
 }
